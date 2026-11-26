@@ -24,6 +24,7 @@ self.addEventListener('fetch', (event) => {
         }
         return res;
       })
-      .catch(() => caches.match(req, { ignoreSearch: req.mode === 'navigate' }).then((hit) => hit || caches.match('./'))),
+      // Запасная страница — только для самой программы: вместо недостающего файла модели или картинки её отдавать нельзя.
+      .catch(() => caches.match(req, { ignoreSearch: req.mode === 'navigate' }).then((hit) => hit || (req.mode === 'navigate' ? caches.match('./') : Response.error()))),
   );
 });
