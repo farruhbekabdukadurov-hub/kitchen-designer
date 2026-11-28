@@ -1,6 +1,6 @@
 {
-  "name": "Проекты мебели",
-  "short_name": "Мебель",
+  "name": "Kitchen",
+  "short_name": "Kitchen",
   "lang": "ru",
   "start_url": "./",
   "scope": "./",
